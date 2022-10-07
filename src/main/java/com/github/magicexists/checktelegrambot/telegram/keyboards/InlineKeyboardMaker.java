@@ -1,7 +1,6 @@
 package com.github.magicexists.checktelegrambot.telegram.keyboards;
 
-import com.github.magicexists.checktelegrambot.constants.bot.CallbackDataPartsEnum;
-
+import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 
@@ -11,54 +10,27 @@ import java.util.List;
 /**
  * Клавиатуры, формируемые в ленте Telegram для получения файлов
  */
-//@Component
+@Component
 public class InlineKeyboardMaker {
 
-    public InlineKeyboardMarkup getInlineMessageButtonsWithTemplate(String prefix, boolean isUserDictionaryNeed) {
-        InlineKeyboardMarkup inlineKeyboardMarkup = getInlineMessageButtons(prefix, isUserDictionaryNeed);
-        inlineKeyboardMarkup.getKeyboard().add(getButton(
-                "Шаблон",
-                prefix + CallbackDataPartsEnum.TEMPLATE.name()
-        ));
-        return inlineKeyboardMarkup;
-    }
+  public InlineKeyboardMarkup getInlineMessageButtons() {
+    List<List<InlineKeyboardButton>> rowList = new ArrayList<>();
 
-    public InlineKeyboardMarkup getInlineMessageButtons(String prefix, boolean isUserDictionaryNeed) {
-        List<List<InlineKeyboardButton>> rowList = new ArrayList<>();
+    rowList.add(getButton("TEST 1", "TEST 1 CALLBACK DATA"));
+    rowList.add(getButton("TEST 2", "TEST 2 CALLBACK DATA"));
 
-//        for (DictionaryResourcePathEnum dictionary : DictionaryResourcePathEnum.values()) {
-//            rowList.add(getButton(
-//                    dictionary.getButtonName(),
-//                    prefix + dictionary.name()
-//            ));
-//        }
+    InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+    inlineKeyboardMarkup.setKeyboard(rowList);
+    return inlineKeyboardMarkup;
+  }
 
-        if (!rowList.isEmpty()) {
-            rowList.add(getButton(
-                    "Все классы",
-                    prefix + CallbackDataPartsEnum.ALL_GRADES.name()
-            ));
-        }
+  private List<InlineKeyboardButton> getButton(String buttonName, String buttonCallBackData) {
+    InlineKeyboardButton button = new InlineKeyboardButton();
+    button.setText(buttonName);
+    button.setCallbackData(buttonCallBackData);
 
-        if (isUserDictionaryNeed) {
-            rowList.add(getButton(
-                    "Ваш словарь",
-                    prefix + CallbackDataPartsEnum.USER_DICTIONARY.name()
-            ));
-        }
-
-        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
-        inlineKeyboardMarkup.setKeyboard(rowList);
-        return inlineKeyboardMarkup;
-    }
-
-    private List<InlineKeyboardButton> getButton(String buttonName, String buttonCallBackData) {
-        InlineKeyboardButton button = new InlineKeyboardButton();
-        button.setText(buttonName);
-        button.setCallbackData(buttonCallBackData);
-
-        List<InlineKeyboardButton> keyboardButtonsRow = new ArrayList<>();
-        keyboardButtonsRow.add(button);
-        return keyboardButtonsRow;
-    }
+    List<InlineKeyboardButton> keyboardButtonsRow = new ArrayList<>();
+    keyboardButtonsRow.add(button);
+    return keyboardButtonsRow;
+  }
 }
