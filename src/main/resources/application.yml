@@ -1,0 +1,13 @@
+server:
+  port: 8443
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root:1234@localhost:27017/check-bot
+telegram:
+  api-url: https://api.telegram.org/
+  webhook-path: https://c883-195-47-194-78.eu.ngrok.io
+  bot-token: 5534042504:AAGaicyKMH32IAkHlkcQx-_-z4MOC9DNn2M
+  bot-name: magicexistsplcheckstestbot
+  
+#  https://api.telegram.org/bot5534042504:AAGaicyKMH32IAkHlkcQx-_-z4MOC9DNn2M/setWebhook?url=https://c883-195-47-194-78.eu.ngrok.io
