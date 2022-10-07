@@ -3,23 +3,19 @@ package com.github.magicexists.checktelegrambot.telegram.handlers;
 import com.github.magicexists.checktelegrambot.telegram.keyboards.InlineKeyboardMaker;
 import com.github.magicexists.checktelegrambot.telegram.keyboards.ReplyKeyboardMaker;
 
+import lombok.AllArgsConstructor;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 @Component
+@AllArgsConstructor
 public class MessageHandler {
 
   private ReplyKeyboardMaker replyKeyboardMaker;
   private InlineKeyboardMaker inlineKeyboardMaker;
-
-  public MessageHandler(
-      ReplyKeyboardMaker replyKeyboardMaker,
-      InlineKeyboardMaker inlineKeyboardMaker) {
-    this.replyKeyboardMaker = replyKeyboardMaker;
-    this.inlineKeyboardMaker = inlineKeyboardMaker;
-  }
 
   public BotApiMethod<?> answerMessage(Message message) {
     String chatId = message.getChatId().toString();
