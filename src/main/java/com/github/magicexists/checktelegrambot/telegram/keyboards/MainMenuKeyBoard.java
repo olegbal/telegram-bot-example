@@ -15,9 +15,6 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * Клавиатуры, формируемые в ленте Telegram для получения файлов
- */
 @Component
 @AllArgsConstructor
 public class MainMenuKeyBoard {
@@ -29,17 +26,21 @@ public class MainMenuKeyBoard {
   public InlineKeyboardMarkup getMainMenuKeyboard(Message message) {
     String userLocale = selectedLanguageService.getSelectedLanguage(
         message.getFrom().getId().toString());
-    
+
     List<List<InlineKeyboardButton>> rowList = new ArrayList<>();
     List<InlineKeyboardButton> row1 = new ArrayList<>();
 
     InlineKeyboardButton sendCheckButton = createSendCheckButton(userLocale);
-    InlineKeyboardButton selectLanguageButton = createSelectLanguageButton(userLocale);
-    row1.addAll(List.of(sendCheckButton, selectLanguageButton));
-    
-    
+//    InlineKeyboardButton selectLanguageButton = createSelectLanguageButton(userLocale);
+    row1.addAll(List.of(
+            sendCheckButton
+            //TODO add language support
+//            selectLanguageButton
+        )
+    );
+
     rowList.add(row1);
-    
+
     InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
     inlineKeyboardMarkup.setKeyboard(rowList);
     return inlineKeyboardMarkup;

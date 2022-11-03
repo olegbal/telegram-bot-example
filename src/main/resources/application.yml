@@ -6,8 +6,8 @@ spring:
       uri: mongodb://root:1234@localhost:27017/check-bot
 telegram:
   api-url: https://api.telegram.org/
-  webhook-path:  https://3638-195-47-194-78.eu.ngrok.io
+  webhook-path:  https://de5b-195-47-194-78.eu.ngrok.io
   bot-token: 5534042504:AAER0t1IvZV-UTMTEdM_EPc5RVxN1kHpWjI
   bot-name: magicexistsplcheckstestbot
   
-#  https://api.telegram.org/bot5534042504:AAER0t1IvZV-UTMTEdM_EPc5RVxN1kHpWjI/setWebhook?url=https://3638-195-47-194-78.eu.ngrok.io
+#  https://api.telegram.org/bot5534042504:AAER0t1IvZV-UTMTEdM_EPc5RVxN1kHpWjI/setWebhook?url=https://de5b-195-47-194-78.eu.ngrok.io

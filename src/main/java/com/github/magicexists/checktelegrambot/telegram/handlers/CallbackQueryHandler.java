@@ -10,18 +10,16 @@ import java.io.IOException;
 @Component
 public class CallbackQueryHandler {
 
+
   public BotApiMethod<?> processCallbackQuery(CallbackQuery buttonQuery) throws IOException {
     final String chatId = buttonQuery.getMessage().getChatId().toString();
 
     String data = buttonQuery.getData();
 
-    switch (data) {
-      case "selectLanguageAction":
-        new SendMessage(chatId, "Select Language received");
-      case "sendCheckAction":
-        new SendMessage(chatId, "Send check received");
-      default:
-        return new SendMessage(chatId, "TEST FROM CALLBACK HANDLER");
-    }
+    return switch (data) {
+      case "selectLanguageAction" -> new SendMessage(chatId, "TODO add multi language support");
+      case "sendCheckAction" -> new SendMessage(chatId, "Send check received");
+      default -> new SendMessage(chatId, "TEST FROM CALLBACK HANDLER");
+    };
   }
 }
