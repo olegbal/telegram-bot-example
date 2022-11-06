@@ -42,7 +42,8 @@ public class SelectRegionKeyboard {
           InlineKeyboardButton regionButton = new InlineKeyboardButton();
           regionButton.setText(region.getName());
           regionButton.setCallbackData(
-              SEND_CHECK_CALLBACK_PREFIX + SELECT_REGION_CALLBACK_PREFIX + region.code);
+              SEND_CHECK_CALLBACK_PREFIX + SELECT_REGION_CALLBACK_PREFIX + region.code + ";"
+                  + region.getCurrency());
           return regionButton;
         })
         .collect(Collectors.toList());
