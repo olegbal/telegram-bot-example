@@ -1,7 +1,7 @@
 package com.github.magicexists.checktelegrambot.telegram;
 
+import com.github.magicexists.checktelegrambot.telegram.handlers.CallbackQueryHandler;
 import com.github.magicexists.checktelegrambot.telegram.handlers.MessageHandler;
-import com.github.magicexists.checktelegrambot.telegram.handlers.callback.CallbackQueryHandler;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -14,8 +14,6 @@ import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.starter.SpringWebhookBot;
-
-import java.io.IOException;
 
 @Getter
 @Setter
@@ -46,7 +44,7 @@ public class WriteReadBot extends SpringWebhookBot {
     }
   }
 
-  private BotApiMethod<?> handleUpdate(Update update) throws IOException {
+  private BotApiMethod<?> handleUpdate(Update update) {
     if (update.hasCallbackQuery()) {
       CallbackQuery callbackQuery = update.getCallbackQuery();
       return callbackQueryHandler.processCallbackQuery(callbackQuery);

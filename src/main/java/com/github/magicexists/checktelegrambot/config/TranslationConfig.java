@@ -11,15 +11,6 @@ import java.util.Set;
 @Configuration
 public class TranslationConfig {
 
-//  @Bean
-//  public LocaleResolver localeResolver() {
-//    CookieLocaleResolver resolver = new CookieLocaleResolver();
-//    resolver.setCookieDomain("myAppLocaleCookie");
-//    // 60 minutes 
-//    resolver.setCookieMaxAge(60 * 60);
-//    return resolver;
-//  }
-
   @Bean
   public Set<String> availableLocales() {
     return Set.of("ru", "pl", "en");

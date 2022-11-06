@@ -1,4 +1,4 @@
-package com.github.magicexists.checktelegrambot.telegram.helpers.callbacks;
+package com.github.magicexists.checktelegrambot.telegram.helper.callbacks;
 
 public class CallbackNamesHelper {
 

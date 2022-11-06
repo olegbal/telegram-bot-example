@@ -1,7 +1,11 @@
-package com.github.magicexists.checktelegrambot.telegram.handlers.callback;
+package com.github.magicexists.checktelegrambot.telegram.handlers;
 
-import static com.github.magicexists.checktelegrambot.telegram.helpers.callbacks.CallbackNamesHelper.MAIN_MENU_CALLBACK_PREFIX;
-import static com.github.magicexists.checktelegrambot.telegram.helpers.callbacks.CallbackNamesHelper.SEND_CHECK_CALLBACK_PREFIX;
+import static com.github.magicexists.checktelegrambot.telegram.helper.callbacks.CallbackNamesHelper.MAIN_MENU_CALLBACK_PREFIX;
+import static com.github.magicexists.checktelegrambot.telegram.helper.callbacks.CallbackNamesHelper.SEND_CHECK_CALLBACK_PREFIX;
+
+import com.github.magicexists.checktelegrambot.telegram.handlers.callback.CustomCallBackHandler;
+import com.github.magicexists.checktelegrambot.telegram.handlers.callback.MainMenuCallbackHandler;
+import com.github.magicexists.checktelegrambot.telegram.handlers.callback.SendCheckCallbackHandler;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

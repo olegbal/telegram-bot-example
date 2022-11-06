@@ -9,5 +9,6 @@ telegram:
   webhook-path: https://c883-195-47-194-78.eu.ngrok.io
   bot-token: 5534042504:AAGaicyKMH32IAkHlkcQx-_-z4MOC9DNn2M
   bot-name: magicexistsplcheckstestbot
-  
+  group-id: -805131827
+
 #  https://api.telegram.org/bot5534042504:AAGaicyKMH32IAkHlkcQx-_-z4MOC9DNn2M/setWebhook?url=https://c883-195-47-194-78.eu.ngrok.io

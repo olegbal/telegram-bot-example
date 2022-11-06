@@ -6,21 +6,31 @@ import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Document
-public class Region {
+public class Total {
 
   @Id
-  public String id;
+  private ObjectId id;
 
   @Field
-  public String name;
+  private TotalType type;
 
   @Field
-  public String currency;
-  
+  private LocalDate date;
+
+  @Field
+  private BigDecimal amount;
+
+  @Field
+  @DocumentReference
+  private Region region;
 }

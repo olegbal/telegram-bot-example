@@ -1,7 +1,6 @@
 package com.github.magicexists.checktelegrambot.telegram.keyboards;
 
-import com.github.magicexists.checktelegrambot.repository.RegionRepository;
-import com.github.magicexists.checktelegrambot.service.SelectedLanguageService;
+import com.github.magicexists.checktelegrambot.service.UserStateService;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
@@ -20,12 +19,14 @@ import java.util.Set;
 public class MainMenuKeyBoard {
 
   private MessageSource messageSource;
-  private SelectedLanguageService selectedLanguageService;
+  private UserStateService selectedLanguageService;
   private Set<String> availableLocales;
 
   public InlineKeyboardMarkup getMainMenuKeyboard(Message message) {
-    String userLocale = selectedLanguageService.getSelectedLanguage(
-        message.getFrom().getId().toString());
+//    String userLocale = selectedLanguageService.getSelectedLanguage(
+//        message.getFrom().getId().toString());
+
+    String userLocale = "en";
 
     List<List<InlineKeyboardButton>> rowList = new ArrayList<>();
     List<InlineKeyboardButton> row1 = new ArrayList<>();

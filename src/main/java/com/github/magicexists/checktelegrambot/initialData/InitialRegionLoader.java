@@ -17,7 +17,7 @@ public class InitialRegionLoader {
   @PostConstruct
   public void initData() {
     regionRepository.deleteAll();
-    regionRepository.save(new Region(null, "🇵🇱", "PLN", "pl"));
-    regionRepository.save(new Region(null, "🇩🇪", "EUR", "de"));
+    regionRepository.save(new Region("pl", "🇵🇱", "PLN" ));
+    regionRepository.save(new Region("de", "🇩🇪", "EUR"));
   }
 }

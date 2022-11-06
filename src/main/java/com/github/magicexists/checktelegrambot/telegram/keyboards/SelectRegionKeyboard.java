@@ -1,7 +1,7 @@
 package com.github.magicexists.checktelegrambot.telegram.keyboards;
 
-import static com.github.magicexists.checktelegrambot.telegram.helpers.callbacks.CallbackNamesHelper.SELECT_REGION_CALLBACK_PREFIX;
-import static com.github.magicexists.checktelegrambot.telegram.helpers.callbacks.CallbackNamesHelper.SEND_CHECK_CALLBACK_PREFIX;
+import static com.github.magicexists.checktelegrambot.telegram.helper.callbacks.CallbackNamesHelper.SELECT_REGION_CALLBACK_PREFIX;
+import static com.github.magicexists.checktelegrambot.telegram.helper.callbacks.CallbackNamesHelper.SEND_CHECK_CALLBACK_PREFIX;
 
 import com.github.magicexists.checktelegrambot.domain.Region;
 import com.github.magicexists.checktelegrambot.repository.RegionRepository;
@@ -42,7 +42,7 @@ public class SelectRegionKeyboard {
           InlineKeyboardButton regionButton = new InlineKeyboardButton();
           regionButton.setText(region.getName());
           regionButton.setCallbackData(
-              SEND_CHECK_CALLBACK_PREFIX + SELECT_REGION_CALLBACK_PREFIX + region.code + ";"
+              SEND_CHECK_CALLBACK_PREFIX + SELECT_REGION_CALLBACK_PREFIX + region.getId() + ";"
                   + region.getCurrency());
           return regionButton;
         })
