@@ -1,5 +1,6 @@
 package com.github.magicexists.checktelegrambot.telegram.handlers;
 
+import com.github.magicexists.checktelegrambot.repository.RegionRepository;
 import com.github.magicexists.checktelegrambot.service.SelectedLanguageService;
 import com.github.magicexists.checktelegrambot.telegram.keyboards.MainMenuKeyBoard;
 

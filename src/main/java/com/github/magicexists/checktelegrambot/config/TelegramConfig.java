@@ -1,7 +1,7 @@
 package com.github.magicexists.checktelegrambot.config;
 
 import com.github.magicexists.checktelegrambot.telegram.WriteReadBot;
-import com.github.magicexists.checktelegrambot.telegram.handlers.CallbackQueryHandler;
+import com.github.magicexists.checktelegrambot.telegram.handlers.callback.CallbackQueryHandler;
 import com.github.magicexists.checktelegrambot.telegram.handlers.MessageHandler;
 
 import org.springframework.beans.factory.annotation.Value;

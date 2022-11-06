@@ -1,5 +1,6 @@
 package com.github.magicexists.checktelegrambot.telegram.keyboards;
 
+import com.github.magicexists.checktelegrambot.repository.RegionRepository;
 import com.github.magicexists.checktelegrambot.service.SelectedLanguageService;
 
 import lombok.AllArgsConstructor;
@@ -13,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Component
 @AllArgsConstructor
@@ -32,7 +32,8 @@ public class MainMenuKeyBoard {
 
     InlineKeyboardButton sendCheckButton = createSendCheckButton(userLocale);
 //    InlineKeyboardButton selectLanguageButton = createSelectLanguageButton(userLocale);
-    row1.addAll(List.of(
+    row1.addAll(
+        List.of(
             sendCheckButton
             //TODO add language support
 //            selectLanguageButton
@@ -56,26 +57,9 @@ public class MainMenuKeyBoard {
 
   private InlineKeyboardButton createSendCheckButton(String userLocale) {
     InlineKeyboardButton sendCheckButton = new InlineKeyboardButton();
-    sendCheckButton.setText(messageSource.getMessage("button.send.check", null,
+    sendCheckButton.setText(messageSource.getMessage("sendcheck.button.main", null,
         new Locale(userLocale)));
-    sendCheckButton.setCallbackData("sendCheckAction");
+    sendCheckButton.setCallbackData("mainmenu_sendCheckAction");
     return sendCheckButton;
-  }
-
-  public InlineKeyboardMarkup getAvailableLanguages(Message message) {
-    List<List<InlineKeyboardButton>> rowList = new ArrayList<>();
-
-    List<InlineKeyboardButton> row1 = availableLocales.stream()
-        .map(code -> {
-          InlineKeyboardButton button = new InlineKeyboardButton();
-          button.setText(code);
-          button.setCallbackData(code);
-          return button;
-        }).collect(Collectors.toList());
-
-    rowList.add(row1);
-    InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
-    inlineKeyboardMarkup.setKeyboard(rowList);
-    return inlineKeyboardMarkup;
   }
 }

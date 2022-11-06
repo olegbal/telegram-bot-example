@@ -1,6 +1,6 @@
 package com.github.magicexists.checktelegrambot.telegram;
 
-import com.github.magicexists.checktelegrambot.telegram.handlers.CallbackQueryHandler;
+import com.github.magicexists.checktelegrambot.telegram.handlers.callback.CallbackQueryHandler;
 import com.github.magicexists.checktelegrambot.telegram.handlers.MessageHandler;
 
 import lombok.AccessLevel;
