@@ -26,7 +26,7 @@ public class MainMenuCallbackHandler implements CustomCallBackHandler {
     return switch (data) {
       case MAIN_MENU_CALLBACK_PREFIX + "selectLanguageAction" -> new SendMessage(chatId,
           "TODO add multi language support");
-      case MAIN_MENU_CALLBACK_PREFIX + "sendCheckAction" -> new SendMessage(chatId, "Test",
+      case MAIN_MENU_CALLBACK_PREFIX + "sendCheckAction" -> new SendMessage(chatId, "Select region",
           ParseMode.HTML, false,
           false, null,
           selectRegionKeyboard.getSelectedRegionButtons(), Collections.emptyList(),
