@@ -4,6 +4,7 @@ import com.github.magicexists.checktelegrambot.domain.CheckRecord;
 import com.github.magicexists.checktelegrambot.domain.Region;
 import com.github.magicexists.checktelegrambot.repository.CheckRecordRepository;
 import com.github.magicexists.checktelegrambot.repository.RegionRepository;
+import com.github.magicexists.checktelegrambot.service.SynchronizedTotalCounter;
 import com.github.magicexists.checktelegrambot.service.UserState;
 import com.github.magicexists.checktelegrambot.service.UserStateService;
 import com.github.magicexists.checktelegrambot.telegram.TelegramApiClient;
@@ -22,7 +23,6 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.ForceReplyKeyboa
 import java.math.BigDecimal;
 import java.text.MessageFormat;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -36,6 +36,7 @@ public class MessageHandler {
   private CheckRecordRepository checkRecordRepository;
   private RegionRepository regionRepository;
   private TelegramApiClient telegramApiClient;
+  private SynchronizedTotalCounter synchronizedTotalCounter;
 
   public BotApiMethod<?> answerMessage(Message message) {
     String chatId = message.getChatId().toString();
@@ -97,7 +98,7 @@ public class MessageHandler {
                   region.getId() + " " + region.getName()));
 
           checkRecordRepository.save(new CheckRecord(null,
-              LocalDateTime.now(ZoneId.of("Europe/Paris")),
+              LocalDateTime.now(),
               fullName, userName, userId, new BigDecimal(userState.getSendCheckAmountTyped()),
               region));
 

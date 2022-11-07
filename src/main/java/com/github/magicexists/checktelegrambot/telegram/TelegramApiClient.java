@@ -42,6 +42,12 @@ public class TelegramApiClient {
             URL, botToken, groupId, fileId, caption), HttpMethod.GET, null, Message.class);
   }
 
+  public void sendText(String text) {
+    ResponseEntity<Message> exchange = restTemplate.exchange(
+        MessageFormat.format("{0}/bot{1}/sendMessage?chat_id={2}&text={3}",
+            URL, botToken, groupId, text), HttpMethod.GET, null, Message.class);
+  }
+
   public File getDocumentFile(String fileId) {
     return restTemplate.execute(
         Objects.requireNonNull(getDocumentTelegramFileUrl(fileId)),

@@ -50,7 +50,7 @@ public class WriteReadBot extends SpringWebhookBot {
       return callbackQueryHandler.processCallbackQuery(callbackQuery);
     } else {
       Message message = update.getMessage();
-      if (message != null) {
+      if (message != null && message.getChat().getType().equals("private")) {
         return messageHandler.answerMessage(update.getMessage());
       }
     }
