@@ -1,4 +1,12 @@
 server:
-  port: 8443
+  port: ${SERVER_PORT}
+spring:
+  data:
+    mongodb:
+      uri: ${SPRING_MONGODB_URI}
 telegram:
   api-url: https://api.telegram.org/
+  webhook-path: ${TELEGRAM_WEBHOOK_PATH}
+  bot-token: ${TELEGRAM_BOT_TOKEN}
+  bot-name: ${TELEGRAM_BOT_NAME}
+  group-id: ${TELEGRAM_GROUP_ID}

@@ -1,8 +1,0 @@
-server:
-  port: 8443
-spring:
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/check-bot
-telegram:
-  api-url: https://api.telegram.org/
